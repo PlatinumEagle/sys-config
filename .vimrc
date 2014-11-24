@@ -1,17 +1,11 @@
 " ======================================================================
-" Plugins, using *** Vundle *** 
+" Plugins, using *** Vundle ***
 " ----------------------------------------------------------------------
 set nocompatible		" be iMproved, required
 filetype off			" required
-
 " set the runtime path to include Vundle and initlaize
 set rtp+=~/.vim/bundle/Vundle.vim/
 
-" Keep Plugin commands between vundle#beging and vundle#end
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle$begin('~/some/path/here')
-"
 "
 " The following are example of different formats supported.
 " plugin on GitHub
@@ -20,7 +14,7 @@ call vundle#begin()
 "	Plugin 'L9'
 " plugin from git repository other than GitHub
 "	Plugin 'git://git.wincent.com/command=t.git'
-" plugin from git repo on local machine (i.e. when working on your own plugin
+" plugin from git repo on local machine (when working on your own plugin)
 "	Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
@@ -28,68 +22,45 @@ call vundle#begin()
 " Avoid a name conflict iwth L9
 "	Plugin 'user/L9', {'name': 'newL9'}
 
+" Keep Plugin commands between vundle#begin and vundle#end
+call vundle#begin()
+"call vundle$begin('~/some/path/here') " to specify path to keep plugins
 " ***********************************
 " ********** BEGIN Plugins **********
 " ***********************************
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
 
-"--- MUST have plugins ---
-"Sensible -- unobjectionable default vim settings 
-"YouCompleteMe -- code completion with fuzzy search
-"Ultisnips or SnipMate -- snippet manager and expander (using tab)
-"Honza's snippets
-"Surround -- add/edit/delete surrounding parens, brackets, quotes, xml tags
-"Repeat -- adds repeat functionality for plugin actions
-"NERDtree -- improved file explorer
-"Emmet -- shorthand for HTML, CSS and XML document creation
-"
-Plugin 'tpope/vim-sensible'
-Plugin 'Valloric/YouCompleteMe'
-""Plugin 'ervandew/supertab'
-""Plugin 'Shougo/neocomplete.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'scrooloose/nerdtree'
+Plugin 'gmarik/Vundle.vim'        " Plugin repository manager
+Plugin 'tpope/vim-sensible'       " unobjectionable default vim settings
+Plugin 'tpope/vim-surround'       " add/edit/delete parens, xml tags, etc
+Plugin 'tpope/vim-repeat'         " repeat functionality for plugin actions
+Plugin 'tpope/vim-fugitive'       " Git wrapper for vim
+Plugin 'tpope/vim-git'            " syntax highlighting for git
+Plugin 'airblade/vim-gitgutter'   " shows git diff in the left 'gutter'
+Plugin 'Valloric/YouCompleteMe'   " code completion with fuzzy search
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'SirVer/ultisnips'         " snippet manager
+Plugin 'honza/vim-snippets'       " snippets for snippet manager
+Plugin 'mattn/emmet-vim'          " shorthand for HTML, CSS, XML creation
+Plugin 'scrooloose/nerdtree'      " improved file explorer
+Plugin 'bling/vim-airline'        " improved status/tabline
+Plugin 'edkolev/tmuxline.vim'     " tmux statusline generator (w/ airline)
 
+" --- Colors ---
 Plugin 'xolox/vim-misc'                 " Required for colorscheme switcher
 Plugin 'xolox/vim-colorscheme-switcher' " Switch using F8 & Shift-F8
 Plugin 'flazz/vim-colorschemes'	        " Gazillions of color schemes!
 "Plugin 'jpo/vim-railscasts-theme'
 "Plugin 'altercation/vim-colors-solarized'
 
-
 " ***********************************
 " *********** END Plugins ***********
 " ***********************************
-
-
-" All of your Plugins must be added before the following line
 call vundle#end()		" required
+" All of your Plugins must be added before the preceding line
 filetype plugin indent on 	" required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append '!' to refresh local cache
-" :PluginSearch foo - searches for foo; append '!' to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; '!' to auto-confirm
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 " ======================================================================
 "
-"
 "-- Plugins to consider --
-"
-"- http://bling.github.io/blog/2013/02/10/love-affair-with-vim/ -
-"- http://blog.kewah.com/2014/from-sublime-text-to-vim/ -
-"- http://code.tutsplus.com/series/vim-essential-plugins--net-19224 -
-"
 "EasyMotion -- jump directly to any word on the screen
 "tComment -- toggle comments
 "Emmet or Sparkup -- quickly create HTML structures via shorthand
@@ -98,25 +69,14 @@ filetype plugin indent on 	" required
 "	CommandT = written in Ruby, fast
 "	CtrlP = more features, slower, written in VimScript
 "	FuzzyFinder = ?
-"SuperTab -- auto-completion with <Tab>
 "AutoComplPop -- automatically showing popups as you type
 "Syntastic -- syntax checker
 "?PeepOpen -- file explorer application (for vim & others)
 "
-
-" ======================================================================
-" Pathogen configuration
-" ----------------------------------------------------------------------
-" ***** after installing new plugins, run :Helptags to update help *****
-"execute pathogen#infect()
-"syntax on
-"filetype plugin indent on
-" ======================================================================
-
 " ======================================================================
 " UltiSnips configuration
 " ----------------------------------------------------------------------
-" Trigger configuration. 
+" Trigger configuration.
 " Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -187,10 +147,10 @@ set background=dark
 "else
 "    set background=dark
 "endif
-"colorscheme solarized  
+"colorscheme solarized
 
 " -- Other --
-"colorscheme railscasts 
+"colorscheme railscasts
 "colorscheme lilypink
 colorscheme hybrid
 
@@ -210,7 +170,7 @@ highlight       Search  ctermfg=White
 
 "====[ Whitespace management ]=======================================
 " Double-delete to remove trailing whitespace...
-"Nmap <silent> <BS><BS> [Remove trailing whitespace] mz:call TrimTrailingWS()<CR>'z
+nmap <silent> <BS><BS> [Remove trailing whitespace] mz:call TrimTrailingWS()<CR>'z
 
 function! TrimTrailingWS ()
     if search('\s\+$', 'cnw')
