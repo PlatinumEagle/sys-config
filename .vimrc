@@ -57,7 +57,7 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'xolox/vim-misc'                 " Required for colorscheme switcher
 Plugin 'xolox/vim-colorscheme-switcher' " Switch using F8 & Shift-F8
-Plugin 'flazz/vim-colorschemes'	" Gazillions of color schemes!
+Plugin 'flazz/vim-colorschemes'	        " Gazillions of color schemes!
 "Plugin 'jpo/vim-railscasts-theme'
 "Plugin 'altercation/vim-colors-solarized'
 
@@ -126,31 +126,74 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " ======================================================================
 
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+"set clipboard=unnamed
 
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+
+" Add additional way to exit insert mode on home row
+inoremap jj <ESC>
 inoremap kj <ESC>
+
+" Change leader key
 let mapleader = ","
+
+" Enable line numbers
+set number
+
+" Enable syntax highlighting
 syntax on
-let g:SuperTabDefaultCompletionType = "context"
+
+" Always show the status line
+set laststatus=2
+
+" Show the cursor position
+set ruler
+
+" Don't show the intro message when starting Vim
+set shortmess=atI
+
+" Show the current mode
+set showmode
+
+" Show the filename in the window titlebar
+set title
+
+" Show the (partial) command as it's being typed
+set showcmd
+
+" Use relative line numbers
+"if exists("&relativenumber")
+"	set relativenumber
+"	au BufReadPost * set relativenumber
+"endif
+
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
 
 
 "====[ Set colorscheme ]=============================================
 set t_Co=256
 
 " -- Solarized --
-"let g:solarized_termcolors=256
-"set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+set background=dark
 "set background=light
+"if has('gui_running')
+"    set background=light
+"else
+"    set background=dark
+"endif
 "colorscheme solarized  
 
-" -- Railscasts --
-"colorscheme railscasts 
-
 " -- Other --
-"colorscheme landscape
-colorscheme lilypink
-"colorscheme literal_tango
-"colorscheme lizard
-"colorscheme loadstone
+"colorscheme railscasts 
+"colorscheme lilypink
+colorscheme hybrid
+
 
 "====[ Set up smarter search behavior ]==============================
 set incsearch    "Lookahead as search pattern is specified
@@ -164,6 +207,8 @@ highlight       Search  ctermfg=White
 " Delete in normal mode to switch off highlights until next search and clear msgs
 "Nmap <silent> <BS> [Cancel highlighting] :call HLNextOff() <BAR> :nohlsearch <BAR> :call VG_Show_CursorColumn('off')<CR>
 
+
+"====[ Whitespace management ]=======================================
 " Double-delete to remove trailing whitespace...
 "Nmap <silent> <BS><BS> [Remove trailing whitespace] mz:call TrimTrailingWS()<CR>'z
 
