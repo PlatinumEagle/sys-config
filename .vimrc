@@ -41,17 +41,26 @@ Plugin 'gmarik/Vundle.vim'
 "Honza's snippets
 "Surround -- add/edit/delete surrounding parens, brackets, quotes, xml tags
 "Repeat -- adds repeat functionality for plugin actions
-
+"NERDtree -- improved file explorer
+"Emmet -- shorthand for HTML, CSS and XML document creation
+"
 Plugin 'tpope/vim-sensible'
 Plugin 'Valloric/YouCompleteMe'
+""Plugin 'ervandew/supertab'
+""Plugin 'Shougo/neocomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-
-"--- Other plugins ---
-"NERDtree -- improved file explorer
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'xolox/vim-misc'                 " Required for colorscheme switcher
+Plugin 'xolox/vim-colorscheme-switcher' " Switch using F8 & Shift-F8
+Plugin 'flazz/vim-colorschemes'	" Gazillions of color schemes!
+"Plugin 'jpo/vim-railscasts-theme'
+"Plugin 'altercation/vim-colors-solarized'
+
 
 " ***********************************
 " *********** END Plugins ***********
@@ -78,35 +87,27 @@ filetype plugin indent on 	" required
 "-- Plugins to consider --
 "
 "- http://bling.github.io/blog/2013/02/10/love-affair-with-vim/ -
-"Vundle -- automatically updates plugins from GitHub
+"- http://blog.kewah.com/2014/from-sublime-text-to-vim/ -
+"- http://code.tutsplus.com/series/vim-essential-plugins--net-19224 -
+"
+"EasyMotion -- jump directly to any word on the screen
+"tComment -- toggle comments
+"Emmet or Sparkup -- quickly create HTML structures via shorthand
+"Multiple Cursor -- like 'multiple cursors' in Sublime Text
 "CommandT, CtrlP, FuzzyFinder -- fuzzy file searching
 "	CommandT = written in Ruby, fast
 "	CtrlP = more features, slower, written in VimScript
 "	FuzzyFinder = ?
 "SuperTab -- auto-completion with <Tab>
-"AutoComplPop -- automatically shoing popups as you type
-"
-"- http://blog.kewah.com/2014/from-sublime-text-to-vim/ -
+"AutoComplPop -- automatically showing popups as you type
 "Syntastic -- syntax checker
-"Emmet or Sparkup -- quickly create HTML structures via shorthand
-"CTRL-P -- fuzzy finder
-"Multiple Cursor -- like 'multiple cursors' in Sublime Text
-"
-"- http://code.tutsplus.com/series/vim-essential-plugins--net-19224 -
-"EasyMotion -- jump directly to any word on the screen
-"Surround -- add/update/delete wrapping characters/tags
-"tComment -- toggle comments
-"NERDtree -- improved file explorer
 "?PeepOpen -- file explorer application (for vim & others)
 "
 
 " ======================================================================
 " Pathogen configuration
 " ----------------------------------------------------------------------
-"Pathogen -- plugin/extension loader (github: tpope/vim-pathogen)
-" **********************************************************************
 " ***** after installing new plugins, run :Helptags to update help *****
-" **********************************************************************
 "execute pathogen#infect()
 "syntax on
 "filetype plugin indent on
@@ -126,10 +127,30 @@ let g:UltiSnipsEditSplit="vertical"
 " ======================================================================
 
 
-
-inoremap jj <ESC>
+inoremap kj <ESC>
 let mapleader = ","
 syntax on
+let g:SuperTabDefaultCompletionType = "context"
+
+
+"====[ Set colorscheme ]=============================================
+set t_Co=256
+
+" -- Solarized --
+"let g:solarized_termcolors=256
+"set background=dark
+"set background=light
+"colorscheme solarized  
+
+" -- Railscasts --
+"colorscheme railscasts 
+
+" -- Other --
+"colorscheme landscape
+colorscheme lilypink
+"colorscheme literal_tango
+"colorscheme lizard
+"colorscheme loadstone
 
 "====[ Set up smarter search behavior ]==============================
 set incsearch    "Lookahead as search pattern is specified
