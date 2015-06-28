@@ -99,6 +99,22 @@ inoremap kj <ESC>
 " Change leader key
 let mapleader = ","
 
+" Size of a hard TABstop (/t)
+set tabstop=8
+
+" A combination of spaces and tabs are used to simulate tabstops
+" at a width other than the (hard) tabstop
+set softtabstop=0
+
+" Always uses spaces instead of tab characters
+set expandtab
+
+" Size of an 'indent'
+set shiftwidth=4
+
+" Make <TAB> key insert indents instead of tabs at the beginning of a line
+set smarttab
+
 " Enable line numbers
 set number
 
