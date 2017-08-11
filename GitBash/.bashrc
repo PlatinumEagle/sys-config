@@ -25,7 +25,7 @@ echo "Done initializing SSH agent."
 
 #Add key(s) to ssh agent (so that password only needs to be provided once for a key duing a session
 ssh-add ~/.ssh/id_rsa_robm-sentinelda-com
-
+ssh-add ~/.ssh/id_rsa_mullinsrl
 
 #Configure aliases
 alias proj="cd /c/dev/projects"
